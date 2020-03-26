@@ -54,7 +54,7 @@ public class Prob_01_01 {
 		}
 
 		char[] chars = str.toCharArray();
-		Arrays.sort(chars);
+		Arrays.sort(chars); // does it use internally any storage?
 		for (int i = 0; i < chars.length - 1; i++) {
 			if (chars[i] == chars[i + 1]) {
 				return false;
