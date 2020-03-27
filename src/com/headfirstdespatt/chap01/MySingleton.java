@@ -12,7 +12,7 @@ public class MySingleton {
 			myUniqInstance = new MySingleton();
 		}*/
 		
-		// return LazyLoader.INSTANCE; // Bill Pugh Method.
+		// return LazyLoader.INSTANCE; // Bill Pugh Method..
 		return myUniqInstance;
 	}
 	
