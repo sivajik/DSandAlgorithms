@@ -1,6 +1,6 @@
-package comkarumanchi.chap06;
+package com.karumanchi.chap06;
 
-public class Prob01_MaxElementInBinaryTree_R {
+public class Prob03_SearchElementInBinaryTree_R {
 
 	public static void main(String[] args) {
 
@@ -23,8 +23,10 @@ public class Prob01_MaxElementInBinaryTree_R {
 		n3.left = n6;
 		n3.right = n7;
 
-		int max = n1.maxElement(n1);
-		System.out.println(max);
+		System.out.println(n1.searchElement(n1, 4));
+		System.out.println(n1.searchElement(n1, 44));
+		System.out.println(n1.searchElement(n1, 7));
+		System.out.println(n1.searchElement(n1, 77));
 	}
 
 	static class BinaryTreeNode {
@@ -41,14 +43,14 @@ public class Prob01_MaxElementInBinaryTree_R {
 			this.right = null;
 		}
 
-		public int maxElement(BinaryTreeNode root) {
-			int max = Integer.MIN_VALUE;
-			if (root != null) {
-				int left = maxElement(root.left);
-				int right = maxElement(root.right);
-				max = Math.max(root.value, Math.max(left, right));
+		public boolean searchElement(BinaryTreeNode root, int lookFor) {
+			if (root == null) {
+				return false;
 			}
-			return max;
+			if (root.value == lookFor) {
+				return true;
+			}
+			return searchElement(root.left, lookFor) || searchElement(root.right, lookFor);
 		}
 	}
 }

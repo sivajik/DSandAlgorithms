@@ -1,9 +1,9 @@
-package comkarumanchi.chap06;
+package com.karumanchi.chap06;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Prob02_MaxElementInBinaryTree_I {
+public class Prob04_SearchElementInBinaryTree_I {
 
 	public static void main(String[] args) {
 
@@ -26,8 +26,10 @@ public class Prob02_MaxElementInBinaryTree_I {
 		n3.left = n6;
 		n3.right = n7;
 
-		int max = n1.maxElement(n1);
-		System.out.println(max);
+		System.out.println(n1.searchElement(n1, 4));
+		System.out.println(n1.searchElement(n1, 44));
+		System.out.println(n1.searchElement(n1, 7));
+		System.out.println(n1.searchElement(n1, 77));
 	}
 
 	static class BinaryTreeNode {
@@ -44,15 +46,14 @@ public class Prob02_MaxElementInBinaryTree_I {
 			this.right = null;
 		}
 
-		public int maxElement(BinaryTreeNode root) {
+		public boolean searchElement(BinaryTreeNode root, int lookFor) {
 			Queue<BinaryTreeNode> q = new LinkedList<>();
 			q.add(root);
 
-			int max = Integer.MIN_VALUE;
 			while (!q.isEmpty()) {
 				BinaryTreeNode tmp = q.poll();
-				if (tmp.value > max) {
-					max = tmp.value;
+				if (tmp.value == lookFor) {
+					return true;
 				}
 
 				if (tmp.left != null) {
@@ -62,7 +63,7 @@ public class Prob02_MaxElementInBinaryTree_I {
 					q.add(tmp.right);
 				}
 			}
-			return max;
+			return false;
 		}
 	}
 }
