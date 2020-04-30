@@ -1,10 +1,12 @@
 package com.karumanchi.chap06;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
-public class Prob07_SizeOfBinaryTree_I {
-
+public class Prob09_LevelOrderReverse_I {
 	public static void main(String[] args) {
 
 		BinaryTreeNode n1 = new BinaryTreeNode(1);
@@ -26,8 +28,7 @@ public class Prob07_SizeOfBinaryTree_I {
 		n3.left = n6;
 		n3.right = n7;
 
-		int size = n1.levelOrderReversal(n1);
-		System.out.println(size);
+		n1.levelOrderReverse(n1);
 	}
 
 	static class BinaryTreeNode {
@@ -44,23 +45,39 @@ public class Prob07_SizeOfBinaryTree_I {
 			this.right = null;
 		}
 
-		public int levelOrderReversal(BinaryTreeNode root) {
+		public void levelOrderReverse(BinaryTreeNode root) {
 
 			Queue<BinaryTreeNode> q = new LinkedList<>();
 			q.add(root);
-			int c = 0;
-			while (!q.isEmpty()) {
-				BinaryTreeNode tmp = q.poll();
-				c++;
 
-				if (tmp.left != null) {
-					q.add(tmp.left);
+			Stack<List<BinaryTreeNode>> stack = new Stack<>();
+			while (!q.isEmpty()) {
+				int size = q.size();
+
+				List<BinaryTreeNode> list = new ArrayList<>();
+
+				for (int i = 0; i < size; i++) {
+					BinaryTreeNode tmp = q.poll();
+					list.add(tmp);
+
+					if (tmp.left != null) {
+						q.add(tmp.left);
+					}
+					if (tmp.right != null) {
+						q.add(tmp.right);
+					}
 				}
-				if (tmp.right != null) {
-					q.add(tmp.right);
-				}
+				stack.push(list);
 			}
-			return c;
+
+			while (!stack.isEmpty()) {
+				List<BinaryTreeNode> list = stack.pop();
+				for (BinaryTreeNode node : list) {
+					System.out.print(node.value + " ");
+				}
+				System.out.println();
+
+			}
 		}
 	}
 }
