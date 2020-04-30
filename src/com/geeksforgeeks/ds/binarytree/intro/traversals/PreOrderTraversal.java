@@ -51,6 +51,7 @@ public class PreOrderTraversal {
 				preOrderRecursive(myRoot.left);
 				preOrderRecursive(myRoot.right);
 			}
+			
 		}
 
 		public void preOrderIterative(BinaryTreeNode myRoot) {

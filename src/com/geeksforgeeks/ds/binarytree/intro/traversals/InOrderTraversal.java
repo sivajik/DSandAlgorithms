@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import com.geeksforgeeks.ds.binarytree.intro.traversals.PreOrderTraversal.BinaryTreeNode;
 
 public class InOrderTraversal {
 
