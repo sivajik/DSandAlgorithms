@@ -43,16 +43,10 @@ public class Prob01_MaxElementInBinaryTree_R {
 
 		public int maxElement(BinaryTreeNode root) {
 			int max = Integer.MIN_VALUE;
-
 			if (root != null) {
 				int left = maxElement(root.left);
 				int right = maxElement(root.right);
-				if (left > right) {
-					max = left;
-				} else {
-					max = right;
-				}
-				max = Math.max(root.value, max);
+				max = Math.max(root.value, Math.max(left, right));
 			}
 			return max;
 		}
