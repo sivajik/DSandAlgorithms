@@ -3,7 +3,7 @@ package com.karumanchi.chap06;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Prob18_CountOfHalfNodesOfBinaryTree_I {
+public class Prob26_SumOfAllElements {
 
 	public static void main(String[] args) {
 
@@ -15,7 +15,7 @@ public class Prob18_CountOfHalfNodesOfBinaryTree_I {
 		BinaryTreeNode n4 = new BinaryTreeNode(4);
 		BinaryTreeNode n5 = new BinaryTreeNode(5);
 		BinaryTreeNode n6 = new BinaryTreeNode(6);
-		BinaryTreeNode n7 = new BinaryTreeNode(17);
+		BinaryTreeNode n7 = new BinaryTreeNode(7);
 
 		n1.left = n2;
 		n1.right = n3;
@@ -26,8 +26,7 @@ public class Prob18_CountOfHalfNodesOfBinaryTree_I {
 		n3.left = n6;
 		n3.right = n7;
 
-		int val = n1.countOfFullNodes(n1);
-		System.out.println(val);
+		System.out.println(n1.sumOfAllElements(n1));
 	}
 
 	static class BinaryTreeNode {
@@ -44,16 +43,14 @@ public class Prob18_CountOfHalfNodesOfBinaryTree_I {
 			this.right = null;
 		}
 
-		public int countOfFullNodes(BinaryTreeNode root) {
-			int c = 0;
+		public int sumOfAllElements(BinaryTreeNode root) {
+			int sum = 0;
+
 			Queue<BinaryTreeNode> q = new LinkedList<>();
 			q.add(root);
-
 			while (!q.isEmpty()) {
 				BinaryTreeNode tmp = q.poll();
-				if ((tmp.left != null && tmp.right == null) || (tmp.left == null && tmp.right != null)) {
-					c++;
-				}
+				sum += tmp.value;
 
 				if (tmp.left != null) {
 					q.add(tmp.left);
@@ -62,7 +59,8 @@ public class Prob18_CountOfHalfNodesOfBinaryTree_I {
 					q.add(tmp.right);
 				}
 			}
-			return c;
+			return sum;
 		}
 	}
+
 }
