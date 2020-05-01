@@ -26,7 +26,7 @@ public class Prob24_PathWithGivenSum {
 		n3.right = n7;
 
 		System.out.println(n1.pathWithGivenSum(n1, 7));
-		
+
 		ArrayList<BinaryTreeNode> l = new ArrayList<BinaryTreeNode>();
 		l.add(n1);
 		System.out.println(n1.pathWithGivenSum1(n1, 7, l));
@@ -53,7 +53,8 @@ public class Prob24_PathWithGivenSum {
 			if (root.left == null && root.right == null && root.value == sum) {
 				return true;
 			}
-			return pathWithGivenSum(root.left, sum - root.value) || pathWithGivenSum(root.left, sum - root.value);
+			return pathWithGivenSum(root.left, sum - root.value) 
+					|| pathWithGivenSum(root.right, sum - root.value);
 		}
 
 		public boolean pathWithGivenSum1(BinaryTreeNode root, int sum, ArrayList<BinaryTreeNode> l) {
