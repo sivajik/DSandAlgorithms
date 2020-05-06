@@ -29,7 +29,7 @@ public class Prob29_MakeTreeFromInorderPreOrder {
 				break;
 			}
 		}
-		
+
 		root.left = makeBinaryTree(preorder, p_start + 1, p_start + rootPosition - i_start, inorder, i_start,
 				rootPosition - 1);
 
