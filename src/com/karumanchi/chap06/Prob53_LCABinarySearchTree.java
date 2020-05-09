@@ -29,7 +29,42 @@ public class Prob53_LCABinarySearchTree {
 		System.out.println();
 
 		LCA(n1, 5, 10);
+		System.out.println();
+		System.out.println(LCA1(n1, 5, 2).value);
+		System.out.println();
+		System.out.println(LCA2(n1, 5, 2).value);
+		
+	}
 
+	public static BinarySearchNode LCA2(BinarySearchNode root, int x, int y) {
+		if (root == null) {
+			return null;
+		}
+		if (x < root.value && y < root.value) {
+			return LCA2(root.left, x, y);
+		}
+		if (x > root.value && y > root.value) {
+			return LCA2(root.right, x, y);
+		}
+		return root;
+	}
+
+	public static BinarySearchNode LCA1(BinarySearchNode root, int x, int y) {
+		if (root == null) {
+			return null;
+		}
+
+		if (root.value == x || root.value == y) {
+			return root;
+		}
+		BinarySearchNode le = LCA1(root.left, x, y);
+		BinarySearchNode ri = LCA1(root.right, x, y);
+
+		if (le != null && ri != null) {
+			return root;
+		}
+
+		return le != null ? le : ri;
 	}
 
 	public static void LCA(BinarySearchNode root, int x, int y) {
