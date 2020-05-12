@@ -1,4 +1,4 @@
-package com.gfg.ds.binarytree.intro.traversals;
+package com.gfg.ds.binarytree.traversals;
 
 import java.util.ArrayList;
 import java.util.List;
