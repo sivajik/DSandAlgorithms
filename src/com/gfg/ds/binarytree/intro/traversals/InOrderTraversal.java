@@ -1,10 +1,11 @@
-package com.geeksforgeeks.ds.binarytree.intro.traversals;
+package com.gfg.ds.binarytree.intro.traversals;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PreOrderTraversal {
+
+public class InOrderTraversal {
 
 	public static void main(String[] args) {
 		BinaryTreeNode n1 = new BinaryTreeNode(1);
@@ -26,9 +27,9 @@ public class PreOrderTraversal {
 		n3.left = n6;
 		n3.right = n7;
 
-		n1.preOrderRecursive(n1);
+		n1.inOrderRecursive(n1);
 		System.out.println();
-		n1.preOrderIterative(n1);
+		n1.inOrderIterative(n1);
 	}
 
 	static class BinaryTreeNode {
@@ -45,35 +46,38 @@ public class PreOrderTraversal {
 			this.right = null;
 		}
 
-		public void preOrderRecursive(BinaryTreeNode myRoot) {
+		public void inOrderRecursive(BinaryTreeNode myRoot) {
 			if (myRoot != null) {
+				inOrderRecursive(myRoot.left);
 				System.out.print(myRoot.value + " ");
-				preOrderRecursive(myRoot.left);
-				preOrderRecursive(myRoot.right);
+				inOrderRecursive(myRoot.right);
 			}
-			
 		}
 
-		public void preOrderIterative(BinaryTreeNode myRoot) {
-			List<BinaryTreeNode> result = new ArrayList<BinaryTreeNode>();
+		public void inOrderIterative(BinaryTreeNode myRoot) {
+			List<BinaryTreeNode> res = new ArrayList<BinaryTreeNode>();
+			boolean done = false;
 
-			Stack<BinaryTreeNode> stack = new Stack();
-			stack.push(myRoot);
-
-			while (!stack.isEmpty()) {
-				BinaryTreeNode currentNode = stack.pop();
-				result.add(currentNode);
-
-				if (currentNode.right != null) {
-					stack.push(currentNode.right);
-				}
-				if (currentNode.left != null) {
-					stack.push(currentNode.left);
+			Stack<BinaryTreeNode> s = new Stack<>();
+			while (!done) {
+				if (myRoot != null) {
+					s.push(myRoot);
+					myRoot = myRoot.left;
+				} else {
+					if (s.isEmpty()) {
+						done = true;
+					} else {
+						myRoot = s.pop();
+						res.add(myRoot);
+						myRoot = myRoot.right;
+					}
 				}
 			}
-			for (BinaryTreeNode node : result) {
+
+			for (BinaryTreeNode node : res) {
 				System.out.print(node.value + " ");
 			}
 		}
 	}
+
 }

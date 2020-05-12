@@ -1,4 +1,4 @@
-package com.geeksforgeeks.ds.binarytree.intro.traversals;
+package com.gfg.ds.binarytree.intro.traversals;
 
 import java.util.LinkedList;
 import java.util.Queue;

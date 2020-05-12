@@ -1,11 +1,10 @@
-package com.geeksforgeeks.ds.binarytree.intro.traversals;
+package com.gfg.ds.binarytree.intro.traversals;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-
-public class InOrderTraversal {
+public class PreOrderTraversal {
 
 	public static void main(String[] args) {
 		BinaryTreeNode n1 = new BinaryTreeNode(1);
@@ -27,9 +26,9 @@ public class InOrderTraversal {
 		n3.left = n6;
 		n3.right = n7;
 
-		n1.inOrderRecursive(n1);
+		n1.preOrderRecursive(n1);
 		System.out.println();
-		n1.inOrderIterative(n1);
+		n1.preOrderIterative(n1);
 	}
 
 	static class BinaryTreeNode {
@@ -46,38 +45,35 @@ public class InOrderTraversal {
 			this.right = null;
 		}
 
-		public void inOrderRecursive(BinaryTreeNode myRoot) {
+		public void preOrderRecursive(BinaryTreeNode myRoot) {
 			if (myRoot != null) {
-				inOrderRecursive(myRoot.left);
 				System.out.print(myRoot.value + " ");
-				inOrderRecursive(myRoot.right);
+				preOrderRecursive(myRoot.left);
+				preOrderRecursive(myRoot.right);
 			}
+			
 		}
 
-		public void inOrderIterative(BinaryTreeNode myRoot) {
-			List<BinaryTreeNode> res = new ArrayList<BinaryTreeNode>();
-			boolean done = false;
+		public void preOrderIterative(BinaryTreeNode myRoot) {
+			List<BinaryTreeNode> result = new ArrayList<BinaryTreeNode>();
 
-			Stack<BinaryTreeNode> s = new Stack<>();
-			while (!done) {
-				if (myRoot != null) {
-					s.push(myRoot);
-					myRoot = myRoot.left;
-				} else {
-					if (s.isEmpty()) {
-						done = true;
-					} else {
-						myRoot = s.pop();
-						res.add(myRoot);
-						myRoot = myRoot.right;
-					}
+			Stack<BinaryTreeNode> stack = new Stack();
+			stack.push(myRoot);
+
+			while (!stack.isEmpty()) {
+				BinaryTreeNode currentNode = stack.pop();
+				result.add(currentNode);
+
+				if (currentNode.right != null) {
+					stack.push(currentNode.right);
+				}
+				if (currentNode.left != null) {
+					stack.push(currentNode.left);
 				}
 			}
-
-			for (BinaryTreeNode node : res) {
+			for (BinaryTreeNode node : result) {
 				System.out.print(node.value + " ");
 			}
 		}
 	}
-
 }
