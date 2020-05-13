@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-
 public class InOrderTraversal {
 
 	public static void main(String[] args) {
@@ -54,29 +53,28 @@ public class InOrderTraversal {
 			}
 		}
 
-		public void inOrderIterative(BinaryTreeNode myRoot) {
-			List<BinaryTreeNode> res = new ArrayList<BinaryTreeNode>();
+		public void inOrderIterative(BinaryTreeNode root) {
+			List<BinaryTreeNode> res = new ArrayList<>();
 			boolean done = false;
-
 			Stack<BinaryTreeNode> s = new Stack<>();
 			while (!done) {
-				if (myRoot != null) {
-					s.push(myRoot);
-					myRoot = myRoot.left;
+				if (root != null) {
+					s.push(root);
+					root = root.left;
 				} else {
 					if (s.isEmpty()) {
 						done = true;
 					} else {
-						myRoot = s.pop();
-						res.add(myRoot);
-						myRoot = myRoot.right;
+						root = s.pop();
+						res.add(root);
+						root = root.right;
 					}
 				}
 			}
-
-			for (BinaryTreeNode node : res) {
-				System.out.print(node.value + " ");
+			for (BinaryTreeNode r : res) {
+				System.out.print(r.value + " ");
 			}
+			System.out.println();
 		}
 	}
 

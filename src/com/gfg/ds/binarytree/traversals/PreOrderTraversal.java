@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import com.gfg.ds.binarytree.traversals.InOrderTraversal.BinaryTreeNode;
+
 public class PreOrderTraversal {
 
 	public static void main(String[] args) {
@@ -54,26 +56,29 @@ public class PreOrderTraversal {
 			
 		}
 
-		public void preOrderIterative(BinaryTreeNode myRoot) {
-			List<BinaryTreeNode> result = new ArrayList<BinaryTreeNode>();
-
-			Stack<BinaryTreeNode> stack = new Stack();
-			stack.push(myRoot);
-
-			while (!stack.isEmpty()) {
-				BinaryTreeNode currentNode = stack.pop();
-				result.add(currentNode);
-
-				if (currentNode.right != null) {
-					stack.push(currentNode.right);
+		public void preOrderIterative(BinaryTreeNode root) {
+			List<BinaryTreeNode> res = new ArrayList<>();
+			
+			Stack<BinaryTreeNode> s = new Stack<>();
+			s.push(root);
+			
+			while (!s.isEmpty()) {
+				BinaryTreeNode t = s.pop();
+				res.add(t);
+				
+				if (t.right != null) {
+					s.add(t.right);
 				}
-				if (currentNode.left != null) {
-					stack.push(currentNode.left);
+				if (t.left != null) {
+					s.add(t.left);
 				}
 			}
-			for (BinaryTreeNode node : result) {
-				System.out.print(node.value + " ");
+			
+			for (BinaryTreeNode r : res) {
+				System.out.print(r.value + " ");
 			}
+			System.out.println();
 		}
+		
 	}
 }
