@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import com.gfg.ds.binarytree.traversals.InOrderTraversal.BinaryTreeNode;
-
 public class PreOrderTraversal {
 
 	public static void main(String[] args) {
@@ -53,32 +51,34 @@ public class PreOrderTraversal {
 				preOrderRecursive(myRoot.left);
 				preOrderRecursive(myRoot.right);
 			}
-			
+
 		}
 
 		public void preOrderIterative(BinaryTreeNode root) {
 			List<BinaryTreeNode> res = new ArrayList<>();
-			
+
 			Stack<BinaryTreeNode> s = new Stack<>();
 			s.push(root);
-			
+
 			while (!s.isEmpty()) {
 				BinaryTreeNode t = s.pop();
 				res.add(t);
-				
+				// Add right first (as it comes next
 				if (t.right != null) {
 					s.add(t.right);
 				}
+
+				// then add left so that it comes first when popped.
 				if (t.left != null) {
 					s.add(t.left);
 				}
 			}
-			
+
 			for (BinaryTreeNode r : res) {
 				System.out.print(r.value + " ");
 			}
 			System.out.println();
 		}
-		
+
 	}
 }

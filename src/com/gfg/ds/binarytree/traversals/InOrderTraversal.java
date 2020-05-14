@@ -57,6 +57,8 @@ public class InOrderTraversal {
 			List<BinaryTreeNode> res = new ArrayList<>();
 			boolean done = false;
 			Stack<BinaryTreeNode> s = new Stack<>();
+
+			// dont push to stack anything
 			while (!done) {
 				if (root != null) {
 					s.push(root);
@@ -66,6 +68,7 @@ public class InOrderTraversal {
 						done = true;
 					} else {
 						root = s.pop();
+						// add only popped elements
 						res.add(root);
 						root = root.right;
 					}
