@@ -1,16 +1,63 @@
 package com.gfg.ds.binarytree.traversals;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Prob18_19_LevelOrderReverseForm2 {
+public class Prob20_LevelOrderReverseForm {
 
 	public static void main(String[] args) {
 		TreeNode root = prepareTree(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 				21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 });
 		levelOrderPrint(root);
+		System.out.println("----");
+		List<TreeNode> l = processNodes(root, 1);
+
+		int[] op = new int[l.size()];
+		int c = 0;
+		for (TreeNode x : l) {
+			op[c++] = x.val;
+		}
+		levelOrderPrint(prepareTree(op));
+	}
+
+	public static List<TreeNode> processNodes(TreeNode tree, int level) {
+		Queue<TreeNode> q = new LinkedList<>();
+		q.add(tree);
+		q.add(null);
+
+		boolean left2right = true;
+
+		List<TreeNode> res = new ArrayList<>();
+
+		List<TreeNode> list = new ArrayList<>();
+		while (!q.isEmpty()) {
+			TreeNode t = q.poll();
+			if (t != null) {
+				list.add(t);
+				if (t.left != null) {
+					q.add(t.left);
+				}
+				if (t.right != null) {
+					q.add(t.right);
+				}
+			} else {
+				if (left2right) {
+					res.addAll(list);
+				} else {
+					Collections.reverse(list);
+					res.addAll(list);
+				}
+				left2right = !left2right;
+				if (!q.isEmpty()) {
+					list = new ArrayList<>();
+					q.add(null);
+				}
+			}
+		}
+		return res;
 	}
 
 	public static void levelOrderPrint(TreeNode tree) {
@@ -31,26 +78,19 @@ public class Prob18_19_LevelOrderReverseForm2 {
 				}
 			} else {
 				print(list);
-				System.out.println();
-				
 				if (!q.isEmpty()) {
 					list = new ArrayList<>();
 					q.add(null);
 				}
 			}
 		}
-
 	}
 
 	private static void print(List<TreeNode> list) {
-		int i = 0;
-		int j = list.size() - 1;
-		while (i <= j) {
-			System.out.print(list.get(i).val + " ");
-			System.out.print(list.get(j).val + " ");
-			i++;
-			j--;
+		for (TreeNode t : list) {
+			System.out.print(t.val + " ");
 		}
+		System.out.println();
 	}
 
 	// ===
