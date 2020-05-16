@@ -71,7 +71,7 @@ public class InOrderTraversal {
 						// add only popped elements
 						res.add(root);
 						root = root.right;
-					}
+					}	
 				}
 			}
 			for (BinaryTreeNode r : res) {
