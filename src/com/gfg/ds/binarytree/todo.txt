@@ -1,3 +1,5 @@
 https://www.geeksforgeeks.org/avl-with-duplicate-keys/
 https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/ + all 3 without stack
 https://www.geeksforgeeks.org/reverse-tree-path/
+https://www.geeksforgeeks.org/modify-binary-tree-get-preorder-traversal-using-right-pointers/
+https://www.geeksforgeeks.org/morris-traversal-for-preorder/
