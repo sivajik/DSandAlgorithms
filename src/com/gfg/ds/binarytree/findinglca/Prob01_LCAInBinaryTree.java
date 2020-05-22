@@ -1,4 +1,4 @@
-package com.gfg.ds.findinglca;
+package com.gfg.ds.binarytree.findinglca;
 
 public class Prob01_LCAInBinaryTree {
 
