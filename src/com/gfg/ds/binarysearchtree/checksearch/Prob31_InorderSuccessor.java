@@ -8,10 +8,27 @@ public class Prob31_InorderSuccessor {
 		TreeNode root = prepareTree(new int[] { 8, 3, 10, 1, 6, 9, 14, -999, -999, 4, 7, -999, -999, 13, 15 });
 		inOrder(root);
 		System.out.println();
-		System.out.println(inOrderSuccessor(root, 8).val);
+		System.out.println(inOrderSuccessor(root, 14).val);
+
+		inOrderSuccessorRec(root, 14);
 	}
 
 	static Map<Integer, TreeNode> map = new HashMap<Integer, TreeNode>();
+
+	static TreeNode sss = null;
+
+	private static void inOrderSuccessorRec(TreeNode root, int data) {
+		if (root != null) {
+			inOrderSuccessorRec(root.right, data);
+
+			if (root.val == data) {
+				System.out.println("successor: " + sss.val);
+			}
+			sss = root;
+
+			inOrderSuccessorRec(root.left, data);
+		}
+	}
 
 	private static TreeNode inOrderSuccessor(TreeNode root, int data) {
 		return inOrderSuccHelper(root, map.get(data));
@@ -31,7 +48,7 @@ public class Prob31_InorderSuccessor {
 					succ = root;
 					root = root.left;
 				} else if (node.val > root.val) {
-					root  = root.right;
+					root = root.right;
 				} else {
 					break;
 				}
