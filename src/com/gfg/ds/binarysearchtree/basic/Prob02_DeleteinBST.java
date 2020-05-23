@@ -1,4 +1,4 @@
-package com.gfg.dsbinarysearchtree.basic;
+package com.gfg.ds.binarysearchtree.basic;
 
 public class Prob02_DeleteinBST {
 
