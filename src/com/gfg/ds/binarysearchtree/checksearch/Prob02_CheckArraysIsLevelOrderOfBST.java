@@ -9,12 +9,14 @@ import java.util.Queue;
 public class Prob02_CheckArraysIsLevelOrderOfBST {
 	public static void main(String[] args) {
 		int[] arr = new int[] { 7, 4, 12, 3, 6, 8, 1, 5, 10 };
-// 		System.out.println(isArrayaBSTBruteForce(arr));
+		System.out.println(isArrayaBSTBruteForce(arr));
+		System.out.println();
 		System.out.println(isArrayaBSTApproach2(arr));
 
 		int[] arr1 = new int[] { 11, 6, 13, 5, 12, 10 };
 		System.out.println(isArrayaBSTApproach2(arr1));
-//		  System.out.println(isArrayaBSTBruteForce(arr1));
+		System.out.println();
+		System.out.println(isArrayaBSTBruteForce(arr1));
 	}
 
 	static class Pair {
