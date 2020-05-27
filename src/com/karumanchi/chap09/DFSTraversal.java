@@ -72,9 +72,14 @@ class Graph {
 		System.out.print(vertexList[0].label + " -> ");
 		stack.push(0);
 
+		boolean backEdgeFound = false;
 		while (!stack.isEmpty()) {
 			int v = getAdjUnVisitedVertext(stack.peek());
 			if (v == -1) {
+				if (!backEdgeFound) {
+					System.out.println("\nNow I can not find any more edges.." + stack.peek());
+					backEdgeFound = true;
+				}
 				stack.pop();
 			} else {
 				vertexList[v].visited = true;
