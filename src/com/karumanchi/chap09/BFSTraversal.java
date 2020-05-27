@@ -1,8 +1,9 @@
 package com.karumanchi.chap09;
 
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class DFSTraversal {
+public class BFSTraversal {
 
 	public static void main(String[] args) {
 		Graph g = new Graph();
@@ -25,7 +26,7 @@ public class DFSTraversal {
 		g.addEdge(5, 6);
 		g.addEdge(5, 7);
 
-		g.dfs();
+		g.bfs();
 	}
 
 	static class Vertex {
@@ -41,7 +42,7 @@ public class DFSTraversal {
 	static class Graph {
 		private int vertexCount = 0;
 		private final int maxVertices = 20;
-		private Stack<Integer> stack;
+		private Queue<Integer> queue;
 		private int[][] adjMatrix;
 		private Vertex[] vertexList;
 
@@ -53,7 +54,7 @@ public class DFSTraversal {
 					adjMatrix[i][j] = 0;
 				}
 			}
-			stack = new Stack<Integer>();
+			queue = new LinkedList<Integer>();
 		}
 
 		public void addVertex(char c) {
@@ -65,24 +66,18 @@ public class DFSTraversal {
 			this.adjMatrix[end][start] = 1;
 		}
 
-		public void dfs() {
+		public void bfs() {
 			vertexList[0].visited = true;
 			System.out.print(vertexList[0].label + " -> ");
-			stack.push(0);
+			queue.add(0);
 
-			boolean backEdgeFound = false;
-			while (!stack.isEmpty()) {
-				int v = getAdjUnVisitedVertext(stack.peek());
-				if (v == -1) {
-					if (!backEdgeFound) {
-						System.out.println("\nNow I can not find any more edges.." + stack.peek());
-						backEdgeFound = true;
-					}
-					stack.pop();
-				} else {
-					vertexList[v].visited = true;
-					System.out.print(vertexList[v].label + " -> ");
-					stack.push(v);
+			while (!queue.isEmpty()) {
+				int v1 = queue.poll();
+				int v2;
+				while ((v2 = getAdjUnVisitedVertext(v1)) != -1) {
+					vertexList[v2].visited = true;
+					System.out.print(vertexList[v2].label + " -> ");
+					queue.add(v2);
 				}
 			}
 			for (int i = 0; i < vertexCount; i++) {
@@ -98,5 +93,6 @@ public class DFSTraversal {
 			}
 			return -1;
 		}
+
 	}
 }
