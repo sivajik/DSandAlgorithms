@@ -1,21 +1,18 @@
 package com.gfg.ds.graph.traversals;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
-public class Prob10_CountLevelsBFSTraversal {
+public class Prob10_DFSIterative {
 
 	public static void main(String[] args) {
-		Graph g = new Graph(7);
-
-		g.addEdge(0, 1);
+		Graph g = new Graph(5);
+		g.addEdge(1, 0);
 		g.addEdge(0, 2);
-		g.addEdge(1, 3);
+		g.addEdge(2, 1);
+		g.addEdge(0, 3);
 		g.addEdge(1, 4);
-		g.addEdge(1, 5);
-		g.addEdge(2, 6);
 
-		g.countLevels();
+		g.traverseDFS();
 	}
 
 	static class Vertex {
@@ -52,32 +49,28 @@ public class Prob10_CountLevelsBFSTraversal {
 			this.adjMatrix[end][start] = 1;
 		}
 
-		public void countLevels() {
-			int c = 0;
+		public void traverseDFS() {
+			Stack<Vertex> stack = new Stack<>();
+			Vertex s = vertexList[0];
+			s.visited = true;
+			
+			stack.push(s);
+			System.out.print(s.id + " -> ");
 
-			Queue<Vertex> q = new LinkedList<>();
+			while (!stack.isEmpty()) {
+				Vertex v = stack.peek();
 
-			Vertex source = vertexList[0];
-			source.visited = true;
+				int adj = -1;
+				adj = getAdjUnVisitedVertext(v.id);
 
-			q.add(source);
-			c++;
-			while (!q.isEmpty()) {
-				Vertex vert = q.poll();
-				int adjVert = -1;
-				boolean levelCompl = false;
-				while ((adjVert = getAdjUnVisitedVertext(vert.id)) != -1) {
-					System.out.println("Visiting: " + adjVert);
-					vertexList[adjVert].visited = true;
-					q.add(vertexList[adjVert]);
-					levelCompl = true;
-				}
-				if (levelCompl) {
-					c++;
+				if (adj == -1) {
+					stack.pop();
+				} else {
+					vertexList[adj].visited = true;
+					stack.push(vertexList[adj]);
+					System.out.print(vertexList[adj].id + " -> ");
 				}
 			}
-
-			System.out.println("total levels: " + (c - 1));
 		}
 
 		private int getAdjUnVisitedVertext(int vertex) {
