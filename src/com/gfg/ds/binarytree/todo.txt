@@ -4,3 +4,7 @@ https://www.geeksforgeeks.org/reverse-tree-path/
 https://www.geeksforgeeks.org/modify-binary-tree-get-preorder-traversal-using-right-pointers/
 https://www.geeksforgeeks.org/morris-traversal-for-preorder/
 https://www.geeksforgeeks.org/check-if-a-given-array-can-represent-preorder-traversal-of-binary-search-tree/
+
+
+
+https://www.geeksforgeeks.org/find-a-mother-vertex-in-a-graph/
