@@ -8,3 +8,4 @@ https://www.geeksforgeeks.org/check-if-a-given-array-can-represent-preorder-trav
 
 
 https://www.geeksforgeeks.org/find-a-mother-vertex-in-a-graph/
+https://www.geeksforgeeks.org/find-k-cores-graph/
