@@ -1,25 +1,33 @@
 package com.gfg.ds.graph.traversals;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
-public class Prob16_CountTrees {
+public class Prob18_LevelOfEachNode {
 
 	public static void main(String[] args) {
-		Graph g = new Graph(5, "dir");
+		Graph g = new Graph(8, "dir");
 		g.addEdge(0, 1);
-		g.addEdge(0, 2);
-		g.addEdge(3, 4);
+		g.addEdge(1, 3);
+		g.addEdge(1, 4);
+		g.addEdge(1, 5);
 
-		g.countForest();
+		g.addEdge(0, 2);
+		g.addEdge(2, 6);
+		g.addEdge(6, 7);
+
+		g.calcLevels();
 	}
 
 	static class Vertex {
 		int id;
 		boolean visited;
+		int level;
 
 		Vertex(int label) {
 			this.id = label;
 			this.visited = false;
+			this.level = 0;
 		}
 	}
 
@@ -45,33 +53,34 @@ public class Prob16_CountTrees {
 		public void addEdge(int v, int w) {
 			if ("dir".equalsIgnoreCase(dirOrUndi)) {
 				adj[v].add(w);
-			} else {
-				// this.adjMatrix[start][end] = 1;
-				// this.adjMatrix[end][start] = 1;
 			}
 		}
 
-		void countForest() {
-			boolean[] visited = new boolean[vertexCount];
-			int count = 0;
-			for (int i = 0; i < vertexCount; i++) {
-				if (visited[i] == false) {
-					DFSUtil(i, visited);
-					count++;
+		void calcLevels() {
+			Queue<Vertex> q = new LinkedList<>();
+
+			Vertex s = vertexList[0];
+			s.visited = true;
+			s.level = 0;
+			q.add(s);
+
+			while (!q.isEmpty()) {
+				Vertex v = q.poll();
+
+				for (Integer adjVer : adj[v.id]) {
+					Vertex vv = vertexList[adjVer];
+					if (vv.visited == false) {
+						vv.visited = true;
+						vv.level = 1 + v.level;
+						q.add(vv);
+					}
 				}
 			}
-			System.out.println("Total forests: " + count);
-		}
 
-		private void DFSUtil(int i, boolean[] visited) {
-
-			visited[i] = true;
-			System.out.println(i + " -> ");
-			for (Integer adj : adj[i]) {
-				if (!visited[adj]) {
-					DFSUtil(adj, visited);
-				}
+			for (Vertex vert : vertexList) {
+				System.out.println(vert.id + " -> " + vert.level);
 			}
 		}
+
 	}
 }
