@@ -1,4 +1,4 @@
-package com.gfg.ds.graph.traversals;
+package com.gfg.ds.graph.topological;
 
 import java.util.LinkedList;
 import java.util.List;
