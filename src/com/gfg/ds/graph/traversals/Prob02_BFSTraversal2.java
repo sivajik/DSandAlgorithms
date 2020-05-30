@@ -76,9 +76,7 @@ public class Prob02_BFSTraversal2 {
 						System.out.println("---- level " + (cnt++)  + " ----");
 					}
 				}
-
 			}
-
 		}
 
 	}
