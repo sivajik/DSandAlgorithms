@@ -34,14 +34,14 @@ public class Prob01_Dijkstras {
 			for (int v = 0; v < V; v++) {
 				if (mstSet[v] == false && // not part of MST yet
 						graph[u][v] != 0 && // edge exists??
-						dist[u] != Integer.MAX_VALUE && // dont pick a infinity edge
+						dist[u] != Integer.MAX_VALUE && // don't pick a infinity edge
 						dist[u] + graph[u][v] < dist[v] // after adding it should be less than infi
 						) {
 					dist[v] = dist[u] + graph[u][v];
 				}
 			}
 		}
-		printMST(dist);
+		printMST(src, dist);
 	}
 
 	private static final int V = 9;
@@ -58,12 +58,13 @@ public class Prob01_Dijkstras {
 		return min_index;
 	}
 
-	void printMST(int dist[]) {
+	void printMST(int src, int dist[]) {
 		System.out.println("Edge \tWeight");
 		for (int i = 1; i < V; i++)
-			System.out.println(i + " - " + i + "\t" + dist[i]);
+			System.out.println(src + " - " + i + "\t" + dist[i]);
 	}
 
+	
 	void dijkstra(int graph[][], int src) {
 		int dist[] = new int[V];
 
@@ -88,6 +89,6 @@ public class Prob01_Dijkstras {
 			}
 		}
 
-		printMST(dist);
+		printMST(src, dist);
 	}
 }
