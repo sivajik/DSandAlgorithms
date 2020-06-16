@@ -31,6 +31,19 @@ public class LCSDynamicProg {
 			System.out.println(Arrays.toString(table[i]));
 		}
 
+		StringBuffer sbfr = new StringBuffer();
+		for (int X = m, Y = n; X > 0 && Y > 0;) {
+			if (table[X][Y] == table[X - 1][Y]) {
+				X--;
+			} else if (table[X][Y] == table[X][Y - 1]) {
+				Y--;
+			} else {
+				sbfr.append(x.charAt(X - 1));// ][Y]);
+				X--;
+				Y--;
+			}
+		}
+		System.out.println(sbfr.reverse().toString());
 		return "" + table[m][n];/*
 								 * ; write theese answers? 234-678= 567+
 								 */
