@@ -89,7 +89,7 @@ class Graph {
 		
 		dist[src] = 0;
 		
-		for (int i = 0; i < V-1; i++) {
+		for (int i = 1; i < V-1; i++) {
 			for (int j = 0; j < E; j++) {
 				int u = edge[j].src;
 				int v = edge[j].dest;
