@@ -13,6 +13,24 @@ public class LCSDynamicProg {
 		int n = y.length();
 		int[][] table = new int[m + 1][n + 1];
 
+		/*
+		 * Recursive Approach is converted to tabular model of DP.
+		 */
+		/*
+		if (m == 0 || n == 0) {
+			return "";
+		} else if (x.charAt(m - 1) == y.charAt(n - 1)) {
+			return LCSRecursiveApproach(x.substring(0, m - 1), y.substring(0, n - 1)) + x.charAt(m - 1);
+		} else {
+			String p = LCSRecursiveApproach(x.substring(0, m - 1), y);
+			String q = LCSRecursiveApproach(x, y.substring(0, n - 1));
+			if (p.length() > q.length()) {
+				return p;
+			} else {
+				return q;
+			}
+		}		 
+		 */
 		for (int i = 0; i <= m; i++) {
 			for (int j = 0; j <= n; j++) {
 				if (i == 0 || j == 0) {
@@ -47,5 +65,25 @@ public class LCSDynamicProg {
 		return "" + table[m][n];/*
 								 * ; write theese answers? 234-678= 567+
 								 */
+	}
+
+	// traditional recursive approach
+	static public String LCSRecursiveApproach(String x, String y) {
+		int m = x.length();
+		int n = y.length();
+
+		if (m == 0 || n == 0) {
+			return "";
+		} else if (x.charAt(m - 1) == y.charAt(n - 1)) {
+			return LCSRecursiveApproach(x.substring(0, m - 1), y.substring(0, n - 1)) + x.charAt(m - 1);
+		} else {
+			String p = LCSRecursiveApproach(x.substring(0, m - 1), y);
+			String q = LCSRecursiveApproach(x, y.substring(0, n - 1));
+			if (p.length() > q.length()) {
+				return p;
+			} else {
+				return q;
+			}
+		}
 	}
 }
