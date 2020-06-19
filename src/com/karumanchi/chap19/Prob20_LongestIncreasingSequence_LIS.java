@@ -9,7 +9,9 @@ public class Prob20_LongestIncreasingSequence_LIS {
 	}
 
 	static public int LIS(int[] a) {
-		int[] lisTable = new int[a.length + 1];
+		int[] lisTable = new int[a.length ];
+
+		Arrays.fill(lisTable, 1);
 
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < i; j++) {

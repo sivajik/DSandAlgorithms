@@ -3,7 +3,6 @@ package com.gfg.algorithms.dp.basic;
 import java.util.Arrays;
 
 public class Prob001_UglyNumbers {
-
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(nextUglyNumer(150)));
 	}
@@ -39,4 +38,5 @@ public class Prob001_UglyNumbers {
 		}
 		return uglyNumbers;
 	}
+
 }
