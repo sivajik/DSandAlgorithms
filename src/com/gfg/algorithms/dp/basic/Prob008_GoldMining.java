@@ -1,6 +1,6 @@
 package com.gfg.algorithms.dp.basic;
 
-public class Prob08_GoldMining {
+public class Prob008_GoldMining {
 
 	public static void main(String[] args) {
 		System.out.println(calcGoldMine(new int[][] { { 1, 3, 3 }, { 2, 1, 4 }, { 0, 6, 4 } }));
