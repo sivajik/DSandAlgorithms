@@ -1,6 +1,6 @@
 package com.gfg.algorithms.dp.basic;
 
-public class Prob04_BellNumbers {
+public class Prob004_BellNumbers {
 
 	public static void main(String[] args) {
 		for (int n = 0; n <= 5; n++)
