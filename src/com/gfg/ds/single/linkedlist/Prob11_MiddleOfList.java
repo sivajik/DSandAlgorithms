@@ -1,6 +1,6 @@
 package com.gfg.ds.single.linkedlist;
 
-public class Prob07_SearchInList {
+public class Prob11_MiddleOfList {
 
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
@@ -10,20 +10,19 @@ public class Prob07_SearchInList {
 		Node fourth = new Node(4);
 		Node fifth = new Node(5);
 		Node sixth = new Node(6);
+		Node seventh = new Node(7);
 
 		list.head.next = second;
 		list.head.next.next = third;
 		list.head.next.next.next = fourth;
 		list.head.next.next.next.next = fifth;
 		list.head.next.next.next.next.next = sixth;
+		list.head.next.next.next.next.next.next = seventh;
 
 		list.printList();
 
-		System.out.println("Search Status : " + list.searchItr(4));
-		System.out.println("Search Status : " + list.searchRec(4));
-
-		System.out.println("Search Status : " + list.searchItr(44));
-		System.out.println("Search Status : " + list.searchRec(44));
+		System.out.println("Element At Middle of the List : ");
+		list.midOfTheList();
 	}
 
 	static class LinkedList {
@@ -38,16 +37,15 @@ public class Prob07_SearchInList {
 			System.out.println("\n");
 		}
 
-		public boolean searchItr(int val) {
-			Node temp = head;
+		public void midOfTheList() {
+			Node slowPtr = head;
+			Node fastPtr = head;
 
-			while (temp != null) {
-				if (temp.data == val) {
-					return true;
-				}
-				temp = temp.next;
+			while (fastPtr != null && fastPtr.next != null) {
+				slowPtr = slowPtr.next;
+				fastPtr = fastPtr.next.next;
 			}
-			return false;
+			System.out.println(slowPtr.data);
 		}
 
 		public boolean searchRec(int val) {
