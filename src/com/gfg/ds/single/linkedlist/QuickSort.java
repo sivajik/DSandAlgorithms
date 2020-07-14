@@ -1,55 +1,93 @@
 package com.gfg.ds.single.linkedlist;
 
 public class QuickSort {
-	int partition(int arr[], int low, int high) {
-		int pivot = arr[high];
-		int i = low - 1;
+	Node partition(Node low, Node high) {
+		if (low == null || high == null) {
+			System.out.println("sss");
+		}
+		int pivot = high.val;
+		Node i = low.prev;
 
-		for (int j = low; j <= high - 1; j++) {
-			if (arr[j] < pivot) {
-				i++;
+		for (Node j = low; j != null && j != high; j = j.next) {
+			if (j != null && j.val < pivot) {
+				i = (i == null) ? low : i.next;
 
-				int temp = arr[j];
-				arr[j] = arr[i];
-				arr[i] = temp;
+				int temp = j.val;
+				j.val = i.val;
+				i.val = temp;
 			}
 		}
 
-		int nextBestPosition = i + 1;
+		i = (i == null) ? low : i.next;
 
-		int temp = arr[nextBestPosition];
-		arr[nextBestPosition] = pivot;
-		arr[high] = temp;
-
-		return nextBestPosition;
-
+		int temp = i.val;
+		i.val = pivot;
+		high.val = temp;
+		return i;
 	}
 
-	void sort(int arr[], int low, int high) {
-		if (low < high) {
-			int partitionIndex = partition(arr, low, high);
-			sort(arr, low, partitionIndex - 1);
-			sort(arr, partitionIndex + 1, high);
+	void sort(Node head, Node last) {
+		if (head != last && last != null && head != last.next) {
+			Node partNode = partition(head, last);
+			sort(head, partNode.prev);
+			sort(partNode.next, last);
 		}
 	}
 
 	/* A utility function to print array of size n */
-	static void printArray(int arr[]) {
-		int n = arr.length;
-		for (int i = 0; i < n; ++i)
-			System.out.print(arr[i] + " ");
+	static void printArray(Node head) {
+		Node temp = head;
+		while (temp != null) {
+			System.out.print(temp.val + " ");
+			temp = temp.next;
+		}
 		System.out.println();
 	}
 
 	// Driver program
 	public static void main(String args[]) {
-		int arr[] = { 10, 7, 8, 9, 1, 5 };
-		int n = arr.length;
+		Node n0 = new Node(10);
+		Node n1 = new Node(7);
+		Node n2 = new Node(8);
+		Node n3 = new Node(9);
+		Node n4 = new Node(1);
+		Node n5 = new Node(5);
+
+		link(n0, n1);
+		link(n1, n2);
+		link(n2, n3);
+		link(n3, n4);
+		link(n4, n5);
+
+		printArray(n0);
 
 		QuickSort ob = new QuickSort();
-		ob.sort(arr, 0, n - 1);
+		ob.sort(n0, last(n0));
 
 		System.out.println("sorted array");
-		printArray(arr);
+		printArray(n0);
+	}
+
+	private static Node last(Node n0) {
+		Node temp = n0;
+		while (temp.next != null) {
+			temp = temp.next;
+		}
+		return temp;
+	}
+
+	private static void link(Node n4, Node n5) {
+		n4.next = n5;
+		n5.prev = n4;
+	}
+
+	static class Node {
+		int val;
+		Node next;
+		Node prev;
+
+		Node(int val) {
+			this.val = val;
+		}
 	}
 }
