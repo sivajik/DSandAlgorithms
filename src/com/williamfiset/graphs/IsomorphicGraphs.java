@@ -113,7 +113,7 @@ public class IsomorphicGraphs {
 		for (String label : labels) {
 			sbr.append(label);
 		}
-		return "(" + sbr.toString() + ")";
+		return "(" + node.id + sbr.toString() + ")";
 	}
 
 	private static TreeNode rootTree(List<List<Integer>> graph, int rootId) {
