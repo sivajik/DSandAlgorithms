@@ -35,6 +35,42 @@ public class TopologocalSort {
 		// // Prints: [6, 0, 5, 1, 2, 3, 4]
 		System.out.println(java.util.Arrays.toString(ordering));
 
+		// Finds all the shortest paths starting at node 0
+		Integer[] dists = dagShortestPath(graph, 0, N);
+
+		// Find the shortest path from 0 to 4 which is 8.0
+		System.out.println(dists[4]);
+
+		// Find the shortest path from 0 to 6 which
+		// is null since 6 is not reachable!
+		System.out.println(dists[6]);
+	}
+
+	private static Integer[] dagShortestPath(Map<Integer, List<Edge>> graph, int start, int n) {
+		int[] topSort = topologicalSort(graph, n);
+
+		Integer[] dist = new Integer[n];
+
+		dist[start] = 0;
+
+		for (int i = 0; i < n; i++) {
+			int eachNodeInTopSortOrder = topSort[i];
+			if (graph.get(eachNodeInTopSortOrder) != null) {
+				for (Edge eachAdjEdge : graph.get(eachNodeInTopSortOrder)) {
+					if (dist[eachNodeInTopSortOrder] == null) {
+						int w =3;
+						System.out.println(w);
+					}
+					int newDistance = eachAdjEdge.weight + dist[eachNodeInTopSortOrder];
+					if (dist[eachAdjEdge.to] != null) {
+						dist[eachAdjEdge.to] = Math.min(dist[eachAdjEdge.to], newDistance);
+					} else {
+						dist[eachAdjEdge.to] = newDistance;
+					}
+				}
+			}
+		}
+		return dist;
 	}
 
 	private static int[] topologicalSort(Map<Integer, List<Edge>> graph, int n) {
@@ -48,7 +84,7 @@ public class TopologocalSort {
 		}
 		int[] result = new int[l.size()];
 		for (int i = 0; i < l.size(); i++) {
-			result[i]  =l.get(i);
+			result[i] = l.get(i);
 		}
 
 		return result;
