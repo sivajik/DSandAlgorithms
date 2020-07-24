@@ -9,15 +9,10 @@ public class LCAOfTree {
 
 	private int tourIndex = 0;
 
-	// Populated when constructing Euler Tour.
 	private long[] nodeDepth;
 	private TreeNode[] nodeOrder;
-	// The last occurrence mapping. This mapping keeps track of the last occurrence
-	// of a TreeNode in
-	// the Euler tour for easy indexing.
 	private int[] last;
 
-	// Sparse table impl which can efficiently do Range Minimum Queries (RMQs).
 	private MinSparseTable sparseTable;
 
 	public LCAOfTree(TreeNode root) {
@@ -31,7 +26,7 @@ public class LCAOfTree {
 		this.nodeDepth = new long[eulerTourSize];
 		this.last = new int[n];
 
-		dfs(root, 0 /* depth */);
+		dfs(root, /* depth = */0);
 		sparseTable = new MinSparseTable(nodeDepth);
 	}
 
