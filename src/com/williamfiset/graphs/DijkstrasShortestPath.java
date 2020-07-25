@@ -38,6 +38,11 @@ public class DijkstrasShortestPath {
 
 		while (!pq.isEmpty()) {
 			Node currNode = pq.poll();
+			
+			if (dist[currNode.id] < currNode.value) {
+				continue;
+			}
+			
 			// get all adj nodes and ensure they are not visited
 
 			visited[currNode.id] = true;
@@ -72,7 +77,7 @@ public class DijkstrasShortestPath {
 			}
 			path.add(curr);
 			Collections.reverse(path);
-			System.out.println(prev[i] + " -> " + path);
+			System.out.println(i + " -> " + path);
 
 		}
 	}
