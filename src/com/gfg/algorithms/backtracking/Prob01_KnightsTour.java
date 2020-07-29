@@ -1,4 +1,4 @@
-package com.backtracking;
+package com.gfg.algorithms.backtracking;
 
 public class Prob01_KnightsTour {
 

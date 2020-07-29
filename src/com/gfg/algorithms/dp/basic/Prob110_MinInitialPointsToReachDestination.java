@@ -1,5 +1,6 @@
 package com.gfg.algorithms.dp.basic;
 
+//do it on LC again.
 public class Prob110_MinInitialPointsToReachDestination {
 
 	public static void main(String args[]) {

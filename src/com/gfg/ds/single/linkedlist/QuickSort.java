@@ -2,9 +2,6 @@ package com.gfg.ds.single.linkedlist;
 
 public class QuickSort {
 	Node partition(Node low, Node high) {
-		if (low == null || high == null) {
-			System.out.println("sss");
-		}
 		int pivot = high.val;
 		Node i = low.prev;
 
