@@ -14,27 +14,15 @@ public class Prob03_NQueensTusharRoy {
 
 		Position[] positions = new Position[board.length];
 
-		if (solve(board, 0, positions) == false) {
-			System.out.println("Unfortunately there is no solution exists..");
-		} else {
-			// Arrays.stream(positions).forEach(position -> System.out.println(position.row
-			// + " " + position.col));
-			Arrays.stream(positions).forEach(position -> {
-				board[position.row][position.col] = 1;
-			});
-
-			for (int i = 0; i < board.length; i++) {
-				for (int j = 0; j < board[i].length; j++) {
-					System.out.print(board[i][j] + " ");
-				}
-				System.out.println();
-			}
-		}
+		solve(board, 0, positions);
 	}
 
 	private boolean solve(int[][] board, int row, Position[] positions) {
-		if (row >= board.length) {
-			return true;
+		if (row == board.length) {
+			Arrays.stream(positions).forEach(position -> {
+				System.out.println(position);
+			});
+			System.out.println("==========");
 		}
 
 		for (int col = 0; col < board.length; col++) {
