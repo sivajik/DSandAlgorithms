@@ -7,7 +7,7 @@ public class Prob01_AllSubSets {
 
 	public static void main(String[] args) {
 		List<String> res = new ArrayList<>();
-		helper("abb", "", res, 0);
+		helper("abcd", "", res, 0);
 		for (String s : res) {
 			System.out.println(" result : " + s);
 		}
