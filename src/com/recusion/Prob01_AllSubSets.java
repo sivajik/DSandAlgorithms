@@ -7,24 +7,23 @@ public class Prob01_AllSubSets {
 
 	public static void main(String[] args) {
 		List<String> res = new ArrayList<>();
-		helper("abcd", "", res, 0);
-		for (String s : res) {
-			System.out.println(" result : " + s);
-		}
+		helper("abc", "", res);
 	}
 
-	private static void helper(String mainStr,  String op, List<String> res, int startAt) {
-		if (startAt == mainStr.length() ) {
-			res.add(op);
+	private static void helper(String ip, String op, List<String> res) {
+		if (0 == ip.length()) {
+			// res.add(op);
+			System.out.println(op);
 			return;
 		}
 
-		// include
-		char c = mainStr.charAt(startAt);
-		helper(mainStr,  op + c, res, startAt + 1);
+		String op1 = op;
+		String op2 = op;
+		op2 += ip.charAt(0);
+		ip = ip.substring(1);
 
-		// exclude
-		helper(mainStr,  op, res, startAt + 1);
+		helper(ip, op1, res);
+		helper(ip, op2, res);
+		return;
 	}
-
 }
