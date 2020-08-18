@@ -14,7 +14,7 @@ public class Prob02_SortArrayUsingRecursion {
 		list.add(3);
 		list.add(1);
 		list.add(4);
-		list = sort(list);
+		sort(list);
 		System.out.println(list);
 
 		List<Integer> list1 = new ArrayList<>();
@@ -26,15 +26,15 @@ public class Prob02_SortArrayUsingRecursion {
 
 	}
 
-	private static List<Integer> sort(List<Integer> list) {
+	private static void sort(List<Integer> list) {
 		if (list.size() == 1) {
-			return list;
+			return;
 		}
 		int lastValue = list.get(list.size() - 1);
 		list.remove(list.size() - 1);
 		sort(list.subList(0, list.size()));
 		insert(list, lastValue);
-		return list;
+		return;
 	}
 
 	// 0 1 5 6
