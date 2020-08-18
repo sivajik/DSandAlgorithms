@@ -7,7 +7,7 @@ public class Prob01_AllSubSets {
 
 	public static void main(String[] args) {
 		List<String> res = new ArrayList<>();
-		helper("abc", "", res);
+		helper("abcd", "", res);
 	}
 
 	private static void helper(String ip, String op, List<String> res) {
@@ -18,8 +18,7 @@ public class Prob01_AllSubSets {
 		}
 
 		String op1 = op;
-		String op2 = op;
-		op2 += ip.charAt(0);
+		String op2 = op + ip.charAt(0);
 		ip = ip.substring(1);
 
 		helper(ip, op1, res);
