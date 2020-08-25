@@ -26,5 +26,6 @@ public class Prob12_JosephusProblem {
 		}
 		arr = Arrays.copyOf(arr, arr.length-1);
 		return solve(arr, k, positionToPlace);
+		
 	}
 }
