@@ -12,9 +12,9 @@ public class P01_KanpsackClassicRecursion {
 		}
 
 		if (wt[n - 1] <= W) {
-			int includeCase = val[n - 1] + maxProfit(wt, val, W - wt[n - 1], n - 1);
-			int excludeCase = maxProfit(wt, val, W - wt[n - 1], n - 1);
-			return Math.max(includeCase, excludeCase);
+			int includeThisWeight = val[n - 1] + maxProfit(wt, val, W - wt[n - 1], n - 1);
+			int excludeThisWeight = maxProfit(wt, val, W - wt[n - 1], n - 1);
+			return Math.max(includeThisWeight, excludeThisWeight);
 		} else {
 			return maxProfit(wt, val, W - wt[n - 1], n - 1);
 		}
