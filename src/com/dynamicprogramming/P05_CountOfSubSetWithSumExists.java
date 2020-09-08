@@ -5,10 +5,10 @@ import java.util.Arrays;
 public class P05_CountOfSubSetWithSumExists {
 
 	public static void main(String[] args) {
-		System.out.println(subsetSumExistsOrNot(new int[] { 2, 3, 5, 6, 8, 10 }, 10));
+		System.out.println(countOfSubsetWithGivenSum(new int[] { 2, 3, 5, 6, 8, 10 }, 10));
 	}
 
-	static int subsetSumExistsOrNot(int[] arr, int givenSum) {
+	static int countOfSubsetWithGivenSum(int[] arr, int givenSum) {
 		int[][] dp = new int[arr.length + 1][givenSum + 1];
 
 		Arrays.fill(dp[0], 0);
