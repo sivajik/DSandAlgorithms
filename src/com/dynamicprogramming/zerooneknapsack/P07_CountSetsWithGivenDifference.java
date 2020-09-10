@@ -1,4 +1,4 @@
-package com.dynamicprogramming;
+package com.dynamicprogramming.zerooneknapsack;
 
 import java.util.Arrays;
 

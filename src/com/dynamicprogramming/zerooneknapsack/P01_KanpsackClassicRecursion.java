@@ -1,4 +1,4 @@
-package com.dynamicprogramming;
+package com.dynamicprogramming.zerooneknapsack;
 
 public class P01_KanpsackClassicRecursion {
 

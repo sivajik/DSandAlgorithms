@@ -1,4 +1,4 @@
-package com.dynamicprogramming;
+package com.dynamicprogramming.zerooneknapsack;
 
 public class P03_KnapsackDP {
 	static int[][] dp;
