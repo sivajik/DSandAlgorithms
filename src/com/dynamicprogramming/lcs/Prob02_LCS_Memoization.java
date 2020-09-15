@@ -21,8 +21,8 @@ public class Prob02_LCS_Memoization {
 			return 0;
 		}
 
-		if (matrix[lenOfA][lenOfA] != -1) {
-			return matrix[lenOfA][lenOfA];
+		if (matrix[lenOfA][lenOfB] != -1) {
+			return matrix[lenOfA][lenOfB];
 		}
 		if (a.charAt(lenOfA - 1) == b.charAt(lenOfB - 1)) {
 			return (matrix[lenOfA][lenOfB] = 1 + lengthOfLCS(a, b, lenOfA - 1, lenOfB - 1, matrix));
