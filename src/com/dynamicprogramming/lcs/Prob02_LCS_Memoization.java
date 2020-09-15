@@ -25,11 +25,11 @@ public class Prob02_LCS_Memoization {
 			return matrix[lenOfA][lenOfA];
 		}
 		if (a.charAt(lenOfA - 1) == b.charAt(lenOfB - 1)) {
-			return (matrix[lenOfA - 1][lenOfA - 1] = 1 + lengthOfLCS(a, b, lenOfA - 1, lenOfB - 1, matrix));
+			return (matrix[lenOfA][lenOfB] = 1 + lengthOfLCS(a, b, lenOfA - 1, lenOfB - 1, matrix));
 		} else {
-			matrix[lenOfA - 1][lenOfB] = lengthOfLCS(a, b, lenOfA - 1, lenOfB, matrix);
-			matrix[lenOfA][lenOfB - 1] = lengthOfLCS(a, b, lenOfA, lenOfB - 1, matrix);
-			return Math.max(matrix[lenOfA - 1][lenOfB], matrix[lenOfA][lenOfB - 1]);
+			int p = lengthOfLCS(a, b, lenOfA - 1, lenOfB, matrix);
+			int q = lengthOfLCS(a, b, lenOfA, lenOfB - 1, matrix);
+			return (matrix[lenOfA][lenOfB] = Math.max(p, q));
 		}
 	}
 
