@@ -6,6 +6,10 @@ public class Prob01_LCS_Recusion {
 		String a = "ABCDGH";
 		String b = "AEDFHR";
 		System.out.println(lengthOfLCS(a, b, a.length(), b.length()));
+
+		a = "AGGTAB";
+		b = "GXTXAYB";
+		System.out.println(lengthOfLCS(a, b, a.length(), b.length()));
 	}
 
 	static int lengthOfLCS(String a, String b, int lenOfA, int lenOfB) {
