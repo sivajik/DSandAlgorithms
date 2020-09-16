@@ -19,11 +19,14 @@ public class Prob03_LCS_BottomUP {
 			return 0;
 		}
 
-		fill(matrix);
+		//fill(matrix);
 
-		for (int i = 1; i <= lenOfA; i++) {
-			for (int j = 1; j <= lenOfB; j++) {
-				if (a.charAt(i - 1) == b.charAt(j - 1)) {
+		for (int i = 0; i <= lenOfA; i++) {
+			for (int j = 0; j <= lenOfB; j++) {
+				if (i == 0 || j == 0) {
+					matrix[i][j] = 0;
+				}
+				else if (a.charAt(i - 1) == b.charAt(j - 1)) {
 					matrix[i][j] = 1 + matrix[i - 1][j - 1];
 				} else {
 					int p = matrix[i - 1][j];// lengthOfLCS(a, b, lenOfA - 1, lenOfB, matrix);
@@ -40,8 +43,6 @@ public class Prob03_LCS_BottomUP {
 			for (int j = 0; j < m[i].length; j++) {
 				if (i == 0 || j == 0) {
 					m[i][j] = 0;
-				} else {
-					m[i][j] = -1;
 				}
 			}
 		}
