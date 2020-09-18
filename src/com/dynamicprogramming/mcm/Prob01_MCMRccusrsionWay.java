@@ -1,6 +1,6 @@
 package com.dynamicprogramming.mcm;
 
-public class Prob01_MCMRccusrsion {
+public class Prob01_MCMRccusrsionWay {
 
 	public static void main(String[] args) {
 		System.out.println(calcMCMMinCost(new int[] { 40, 20, 30, 10, 30 }));
