@@ -3,7 +3,7 @@ package com.dynamicprogramming.mcm;
 public class Prob03_CountOfPalinPartitions {
 
 	public static void main(String[] args) {
-		System.out.println(countOfPalinPartitions("nitin"));
+		System.out.println(countOfPalinPartitions("nitin")) ;
 	}
 
 	static int countOfPalinPartitions(String str) {
