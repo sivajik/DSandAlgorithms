@@ -3,7 +3,7 @@ package com.dynamicprogramming.mcm;
 public class Prob03_CountOfPalinPartitions {
 
 	public static void main(String[] args) {
-		System.out.println(countOfPalinPartitions("nitin")) ;
+		System.out.println(countOfPalinPartitions("nitixyxz")) ;
 	}
 
 	static int countOfPalinPartitions(String str) {
@@ -35,7 +35,13 @@ public class Prob03_CountOfPalinPartitions {
 	}
 
 	private static boolean isPalindrome(char[] str, int i, int j) {
-		// TODO Auto-generated method stub
-		return false;
+		while (i <= j) {
+			if (str[i] != str[j]) {
+				return false;
+			}
+			i++;
+			j--;
+		}
+		return true;
 	}
 }
