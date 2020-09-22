@@ -3,8 +3,8 @@ package com.dynamicprogramming.mcm;
 public class Prob04_BooleanParenthesizationRecursive {
 
 	public static void main(String[] args) {
-		String s = "T|F&T^F";
-		System.out.println(countBooleanParen(s));
+		System.out.println(countBooleanParen("T|F&T^F"));
+		System.out.println(countBooleanParen("T|T&F^T"));
 	}
 
 	private static int countBooleanParen(String s) {
