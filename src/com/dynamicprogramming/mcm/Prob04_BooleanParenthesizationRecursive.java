@@ -8,7 +8,6 @@ public class Prob04_BooleanParenthesizationRecursive {
 	}
 
 	private static int countBooleanParen(String s) {
-		boolean isTrue = false;
 		return solve(s, 0, s.length() - 1, true);
 	}
 
