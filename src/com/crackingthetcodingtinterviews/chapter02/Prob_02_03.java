@@ -1,8 +1,6 @@
 package com.crackingthetcodingtinterviews.chapter02;
 
-import java.util.Stack;
-
-public class Prob_02_03 {
+public class Prob_02_02 {
 
 	public static void main(String[] args) {
 		LinkedList l = new LinkedList();
@@ -17,46 +15,19 @@ public class Prob_02_03 {
 		l.add(19);
 
 		l.print();
-
-		System.out.println(printKthToLast(l.head, 3));
-		System.out.println(printKthToLast(l.head, 9));
-		System.out.println(printKthToLast(l.head, 6));
-		System.out.println();
-		System.out.println(printKthToLastEfficient(l.head, 3));
-		System.out.println(printKthToLastEfficient(l.head, 9));
-		System.out.println(printKthToLastEfficient(l.head, 6));
+		deleteGivenNode(l.head, 3);
+		l.print();
 	}
 
-	static int printKthToLastEfficient(LinkedListNode head, int k) {
-		LinkedListNode a = head;
-		LinkedListNode b = head;
-
-		for (int i = 0; i < k; i++) {
-			a = a.next;
-		}
-
-		while (a != null) {
-			a = a.next;
-			b = b.next;
-		}
-		return b.val;
-	}
-
-	static int printKthToLast(LinkedListNode head, int k) {
-		Stack<LinkedListNode> s = new Stack<LinkedListNode>();
+	static void deleteGivenNode(LinkedListNode head, int k) {
 		LinkedListNode temp = head;
-		while (temp != null) {
-			s.push(temp);
+		for (int i = 0; i < k-1; i++) {
 			temp = temp.next;
 		}
-
-		int cntr = 0;
-		LinkedListNode res = null;
-		while (cntr != k) {
-			res = s.pop();
-			cntr++;
-		}
-		return res.val;
+		// temp is the one to be deleted
+		LinkedListNode nextNode = temp.next;
+		temp.val = nextNode.val;
+		temp.next = nextNode.next;
 	}
 
 	static class LinkedList {
