@@ -1,7 +1,5 @@
 package com.crackingthetcodingtinterviews.chapter02;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
 public class Prob_02_02 {
@@ -19,9 +17,29 @@ public class Prob_02_02 {
 		l.add(19);
 
 		l.print();
+
 		System.out.println(printKthToLast(l.head, 3));
 		System.out.println(printKthToLast(l.head, 9));
 		System.out.println(printKthToLast(l.head, 6));
+		System.out.println();
+		System.out.println(printKthToLastEfficient(l.head, 3));
+		System.out.println(printKthToLastEfficient(l.head, 9));
+		System.out.println(printKthToLastEfficient(l.head, 6));
+	}
+
+	static int printKthToLastEfficient(LinkedListNode head, int k) {
+		LinkedListNode a = head;
+		LinkedListNode b = head;
+
+		for (int i = 0; i < k; i++) {
+			a = a.next;
+		}
+
+		while (a != null) {
+			a = a.next;
+			b = b.next;
+		}
+		return b.val;
 	}
 
 	static int printKthToLast(LinkedListNode head, int k) {
@@ -31,7 +49,7 @@ public class Prob_02_02 {
 			s.push(temp);
 			temp = temp.next;
 		}
-		
+
 		int cntr = 0;
 		LinkedListNode res = null;
 		while (cntr != k) {
