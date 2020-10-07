@@ -1,6 +1,6 @@
 package com.crackingthetcodingtinterviews.chapter02;
 
-public class Prob_02_02 {
+public class Prob_02_03 {
 
 	public static void main(String[] args) {
 		LinkedList l = new LinkedList();
