@@ -23,7 +23,7 @@ public class Prob01_03_KSortedArray {
 			l.add(p.poll());
 		}
 		System.out.println(l);
-		
+/*		
 		System.out.println("---- BS approach -----");
 		l = new ArrayList<>();
 
@@ -38,6 +38,7 @@ public class Prob01_03_KSortedArray {
 			l.add(p.poll());
 		}
 		System.out.println(l);
+*/		
 	}
 
 }
