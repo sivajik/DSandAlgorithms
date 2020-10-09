@@ -1,21 +1,30 @@
 package com.gfg.ds.heap;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Prob01_01_Demo {
-
+	// Kth smallest (means make MaxHeap)
 	public static void main(String[] args) {
-		PriorityQueue<Integer> p = new PriorityQueue<>();
-		p.add(2);
-		p.add(6);
-		p.add(0);
-		p.add(3);
-		p.add(1);
-		p.add(4);
-		
-		while (!p.isEmpty()) {
-			System.out.println(p.poll());
+		PriorityQueue<Integer> p = new PriorityQueue<>(new Comparator<Integer>() {
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				return o2 - o1;
+			}
+		});
+
+		int[] arr = new int[] { 7, 10, 4, 3, 20, 15 };
+		int k = 3;
+		int cnt = 0;
+		for (; cnt < arr.length; cnt++) {
+			p.add(arr[cnt]);
+
+			if (p.size() > k) {
+				p.poll();
+			}
 		}
+		System.out.println(p.poll());
 	}
 
 }
