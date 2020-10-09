@@ -24,7 +24,7 @@ public class Prob01_01_Demo {
 				p.poll();
 			}
 		}
-		System.out.println(p.poll());
+		System.out.println(p.peek());
 	}
 
 }
