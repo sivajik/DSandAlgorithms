@@ -3,7 +3,7 @@ package com.gfg.ds.heap;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Prob01_01_Demo {
+public class Prob01_01_KthSmallest {
 	// Kth smallest (means make MaxHeap)
 	public static void main(String[] args) {
 		PriorityQueue<Integer> p = new PriorityQueue<>(new Comparator<Integer>() {
