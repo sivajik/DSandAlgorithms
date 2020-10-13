@@ -7,6 +7,7 @@ import java.util.Stack;
 
 public class Prob01_NextGreaterToRight {
 	// Try with 1 3 2 4 and a picture it on paper.
+	
 	public static void main(String[] args) {
 		// int[] arr = new int[] { 1, 3, 2, 4 };
 		int[] arr = new int[] { 1, 3, 0, 0, 1, 2, 4 };
