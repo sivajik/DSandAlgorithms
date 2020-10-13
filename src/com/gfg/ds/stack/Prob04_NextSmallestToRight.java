@@ -1,10 +1,11 @@
 package com.gfg.ds.stack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-public class Prob03_NextSmallestToLeft {
+public class Prob04_NextSmallestToRight {
 	// Try with 1 3 2 4 and a picture it on paper.
 	public static void main(String[] args) {
 		int[] arr = new int[] { 4, 5, 2, 10, 8 };
@@ -12,8 +13,8 @@ public class Prob03_NextSmallestToLeft {
 		Stack<Integer> s = new Stack<Integer>();
 		List<Integer> result = new ArrayList<>();
 
-		// change 1 : for (int i = arr.length - 1; i >= 0; i--) {
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = arr.length - 1; i >= 0; i--) {
+		// for (int i = 0; i < arr.length; i++) {
 			if (s.isEmpty()) {
 				result.add(-1);
 			} else if (s.size() > 0 && s.peek() < arr[i]) {
@@ -32,7 +33,7 @@ public class Prob03_NextSmallestToLeft {
 			s.push(arr[i]);
 		}
 		// change 2: no need to reverse
-		// Collections.reverse(result);
+		Collections.reverse(result);
 		System.out.println(result);
 	}
 
