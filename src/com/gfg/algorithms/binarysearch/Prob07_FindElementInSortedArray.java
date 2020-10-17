@@ -2,6 +2,7 @@ package com.gfg.algorithms.binarysearch;
 
 public class Prob07_FindElementInSortedArray {
 	// num of times rotated === index of smallest number
+	// once index is found do a BS based on [0, index-1) and [index, arr.len-1]
 	public static void main(String[] args) {
 		int[] arr = new int[] { 11, 12, 15, 1, 2, 5, 6, 8 };
 		int minIndex = (numberOftimesRotated(arr));
