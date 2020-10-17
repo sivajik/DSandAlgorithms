@@ -1,6 +1,6 @@
 package com.gfg.algorithms.binarysearch;
 
-public class Prob12_FindElementInInfiniteSortedArray {
+public class Prob12_FindFirstOnetInInfiniteSortedArrayBinary {
 	// infinite does nt mean to scare us
 	// let l = 0, h = 1 while key is greater than h keep h as h * 2 and l = old end.
 	public static void main(String[] args) {
