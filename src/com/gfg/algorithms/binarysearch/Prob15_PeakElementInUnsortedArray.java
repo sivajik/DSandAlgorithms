@@ -3,7 +3,7 @@ package com.gfg.algorithms.binarysearch;
 public class Prob15_PeakElementInUnsortedArray {
 	// Peak elem == element greater than both of its side elements
 	public static void main(String[] args) {
-		int[] arr = new int[] { 5, 10, 20, 15 };
+		int[] arr = new int[] {3,4,3,2,1};
 		System.out.println(bsInfi(arr));
 	}
 
@@ -11,6 +11,13 @@ public class Prob15_PeakElementInUnsortedArray {
 		int l = 0;
 		int h = arr.length - 1;
 		while (l <= h) {
+			if (l + 1 == h) {
+				if (arr[l] > arr[h]) {
+					return arr[l];
+				} else {
+					return arr[h];
+				}
+			}
 			int mid = l + (h - l) / 2;
 
 			if (mid > 0 && mid < arr.length - 1) {
