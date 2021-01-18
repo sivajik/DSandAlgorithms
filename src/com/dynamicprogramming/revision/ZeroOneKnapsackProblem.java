@@ -18,8 +18,10 @@ public class ZeroOneKnapsackProblem {
 					dp[i][j] = 0;
 				} else {
 					if (wt[i - 1] <= j) {
+						// val[n-1] + knapsack(vals, wt, W-wt[n-1], n-1)
 						dp[i][j] = Math.max(val[i - 1] + dp[i - 1][j - wt[i - 1]], dp[i - 1][j]);
 					} else {
+						// knapsack(wt, val, W, n-1);
 						dp[i][j] = dp[i - 1][j];
 					}
 				}
@@ -27,5 +29,4 @@ public class ZeroOneKnapsackProblem {
 		}
 		System.out.println(dp[N][W]);
 	}
-	// val[n-1] + knapsack(vals, wt, W-wt[n-1], n-1)
 }
