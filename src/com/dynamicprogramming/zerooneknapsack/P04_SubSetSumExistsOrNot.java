@@ -20,7 +20,7 @@ public class P04_SubSetSumExistsOrNot {
 		for (int i = 1; i <= arr.length; i++) {
 			for (int j = 1; j <= givenSum; j++) {
 				if (arr[i-1] <= j) {
-					// include
+					// include scenario
 					dp[i][j] = dp[i-1][j-arr[i-1]] || dp[i-1][j];
 				} else {
 					dp[i][j] = dp[i-1][j];
