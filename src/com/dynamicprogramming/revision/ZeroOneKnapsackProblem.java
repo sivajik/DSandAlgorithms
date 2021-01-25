@@ -10,6 +10,7 @@ public class ZeroOneKnapsackProblem {
 
 		int[] wt = new int[] { 10, 20, 30 };
 		int[] val = new int[] { 60, 100, 120 };
+		
 		// i : N
 		// j: Weights
 		for (int i = 0; i < N + 1; i++) {
