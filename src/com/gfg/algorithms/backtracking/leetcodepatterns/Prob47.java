@@ -23,7 +23,8 @@ public class Prob47 {
 	private static void helper(int[] nums, ArrayList<Integer> tempList, List<List<Integer>> res, boolean[] used) {
 		if (tempList.size() == nums.length) {
 			res.add(new ArrayList(tempList));
-		} else {
+			return;
+		} // else {
 			for (int i = 0; i < nums.length; i++) {
 				if (used[i] == true || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
 					continue;
@@ -35,6 +36,6 @@ public class Prob47 {
 				used[i] = false;
 				tempList.remove(tempList.size() - 1);
 			}
-		}
+		//}
 	}
 }

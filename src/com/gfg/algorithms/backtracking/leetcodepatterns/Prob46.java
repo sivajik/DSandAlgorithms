@@ -21,7 +21,8 @@ public class Prob46 {
 	private static void helper(int[] nums, ArrayList<Integer> tempList, List<List<Integer>> res) {
 		if (tempList.size() == nums.length) {
 			res.add(new ArrayList(tempList));
-		} else {
+			return;
+		} //else {
 			for (int i = 0; i < nums.length; i++) {
 				if (tempList.contains(nums[i])) {
 					continue;
@@ -30,6 +31,6 @@ public class Prob46 {
 				helper(nums, tempList, res);
 				tempList.remove(tempList.size() - 1);
 			}
-		}
+		//}
 	}
 }
