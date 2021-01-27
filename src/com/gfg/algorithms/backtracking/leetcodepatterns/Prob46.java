@@ -13,12 +13,12 @@ public class Prob46 {
 
 	static public List<List<Integer>> subsets(int[] nums) {
 		List<List<Integer>> res = new ArrayList<>();
-		helper(nums, 0, new ArrayList<>(), res);
+		helper(nums, new ArrayList<>(), res);
 		return res;
 	}
 
 	@SuppressWarnings("unchecked")
-	private static void helper(int[] nums, int currIndex, ArrayList<Integer> tempList, List<List<Integer>> res) {
+	private static void helper(int[] nums, ArrayList<Integer> tempList, List<List<Integer>> res) {
 		if (tempList.size() == nums.length) {
 			res.add(new ArrayList(tempList));
 		} else {
@@ -27,7 +27,7 @@ public class Prob46 {
 					continue;
 				}
 				tempList.add(nums[i]);
-				helper(nums, i + 1, tempList, res);
+				helper(nums, tempList, res);
 				tempList.remove(tempList.size() - 1);
 			}
 		}
