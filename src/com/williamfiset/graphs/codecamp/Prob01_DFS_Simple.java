@@ -47,6 +47,14 @@ public class Prob01_DFS_Simple {
 	void DFSIterator(int at) {
 		boolean[] visited = new boolean[n];
 		dfs(at, visited);
+
+		System.out.println();
+		System.out.println("- disconnected/unvisited -");
+		for (int i = 0; i < n; i++) {
+			if (visited[i] == false) {
+				System.out.print(i);
+			}
+		}
 	}
 
 	private void dfs(int at, boolean[] visited) {
