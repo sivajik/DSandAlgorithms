@@ -28,6 +28,10 @@ public class Prob04_BFS_GridSearch {
 		while (!q.isEmpty()) {
 			Point p = q.poll();
 
+			if (p.equals(b)) {
+				break;
+			}
+
 			for (int i = 0; i < 4; i++) {
 				int newR = p.x + dir[i][0];
 				int newC = p.y + dir[i][1];
@@ -42,11 +46,7 @@ public class Prob04_BFS_GridSearch {
 					prev.put(newPoint, p);
 					visited[newR][newC] = true;
 
-					if (newPoint.equals(b)) {
-						break;
-					} else {
-						q.add(newPoint);
-					}
+					q.add(newPoint);
 				}
 			}
 		}
