@@ -9,7 +9,7 @@ import java.util.Map;
 public class Prob06_SSSP_TopologicalSort {
 
 	public static void main(String[] args) {
-		final int N = 7;
+		final int N = 9;
 		Map<Integer, List<Edge>> graph = new HashMap<>();
 		for (int i = 0; i < N; i++) {
 			graph.put(i, new ArrayList<>());
@@ -49,14 +49,19 @@ public class Prob06_SSSP_TopologicalSort {
 		for (int i = 0; i < n; i++) {
 			int currVertex = ordering.get(i);// 6 0 5 1 2 3 4
 
+			// all orphans comes first so the should be skipped.
+			// for start element only the below code enters the block.
 			if (dist[currVertex] != Integer.MAX_VALUE) {
 				List<Edge> adjElems = graph.get(currVertex);
 				if (adjElems != null) {
 					for (Edge e : adjElems) {
 						int newCost = e.cost + dist[currVertex];
+						// never visited before so set value from infinity
 						if (dist[e.v] == Integer.MAX_VALUE) {
 							dist[e.v] = newCost;
 						} else if (newCost < dist[e.v]) {
+							// already visited so not equal to MAXV_VALUE
+							// then set the value if its less than old distance.
 							dist[e.v] = newCost;
 						}
 					}
