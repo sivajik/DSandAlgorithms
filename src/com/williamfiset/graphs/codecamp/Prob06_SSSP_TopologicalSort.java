@@ -52,6 +52,7 @@ public class Prob06_SSSP_TopologicalSort {
 			// all orphans comes first so the should be skipped.
 			// for start element only the below code enters the block.
 			if (dist[currVertex] != Integer.MAX_VALUE) {
+				// GET ALL EDGED GOING OUT FROM THIS EDGE
 				List<Edge> adjElems = graph.get(currVertex);
 				if (adjElems != null) {
 					for (Edge e : adjElems) {
