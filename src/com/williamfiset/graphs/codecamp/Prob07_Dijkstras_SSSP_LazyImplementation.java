@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
 
+/*
+ * better impl could be O(E * log(v)) to O( (E+V) * log(v))
+ */
 public class Prob07_Dijkstras_SSSP_LazyImplementation {
 
 	public static void main(String[] args) {
