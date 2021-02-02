@@ -28,6 +28,7 @@ public class Prob09_FloydWarshall_APSP {
 
 	private void floydWarshall() {
 		int[][] dist = new int[n][n];
+		int[][] next = new int[n][n];
 
 		// initialise the array. could have been done in createGrpah
 		for (int i = 0; i < n; i++) {
@@ -41,6 +42,19 @@ public class Prob09_FloydWarshall_APSP {
 				for (int j = 0; j < n; j++) {
 					if (dist[i][k] + dist[k][j] < dist[i][j]) {
 						dist[i][j] = dist[i][k] + dist[k][j];
+						next[i][j] = next[i][k]; // better to go i->k than i->j
+					}
+				}
+			}
+		}
+
+		// see if there are negative cycles
+		for (int k = 0; k < n; k++) {
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					if (dist[i][k] + dist[k][j] < dist[i][j]) {
+						dist[i][j] = -1 * INF;
+						next[i][j] = -1;
 					}
 				}
 			}
