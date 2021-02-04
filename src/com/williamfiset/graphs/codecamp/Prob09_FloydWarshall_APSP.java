@@ -7,6 +7,7 @@ import java.util.Arrays;
  * complexity of O(V2), hence not so widely used due to v cube comp. however this is app pair
  * shortest path and also deals negative cycles too.
  * 
+ * Logic: I-J is better than I->K + K->J
  * moreover it works best for adjMatrices only.
  */
 public class Prob09_FloydWarshall_APSP {
