@@ -10,6 +10,8 @@ import java.util.Map;
  * better impl could be O(EV) which is worst than D's  O( (E+V) * log(v))
  * though this is less performant, it helps to deal with negative edge weights 
  * and negative cycles.
+ * 
+ * Logic is for EACH edge relax v-1 times.
  */
 public class Prob08_BellmanFord_NegativeCycles {
 
