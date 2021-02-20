@@ -3,7 +3,7 @@ package com.gfg.ds.graph.c3.topological;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Prob03_DFSTraversal2 {
+public class Prob03_DSU_CycleLogic {
 
 	public static void main(String[] args) {
 		Graph g = new Graph(8, "dir");
