@@ -19,11 +19,13 @@ public class Prob78 {
 
 	@SuppressWarnings("unchecked")
 	private static void helper(int[] nums, int currIndex, ArrayList<Integer> tempList, List<List<Integer>> res) {
-		res.add(new ArrayList(tempList));
+		System.out.println("Current: " + currIndex);
+		res.add(new ArrayList<>(tempList));
 		for (int i = currIndex; i < nums.length; i++) {
 			tempList.add(nums[i]);
 			helper(nums, i + 1, tempList, res);
 			tempList.remove(tempList.size() - 1);
 		}
+		System.out.println("Now current index: " + currIndex);
 	}
 }
