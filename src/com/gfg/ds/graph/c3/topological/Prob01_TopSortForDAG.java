@@ -10,7 +10,7 @@ The above algorithm is simply DFS with an extra stack. So time complexity is the
 Auxiliary space: O(V). 
 The extra space is needed for the stack.
 
-TopSort only possible for DAGs only.
+Topological Sorting for a graph is "NOT POSSIBLE IF GRAPH IS NOT A DAG"
 
 Note that a vertex is pushed to stack only when all of its adjacent vertices 
 (and their adjacent vertices and so on) are already in the stack. Means the mother vertex is the one that comes last. 
