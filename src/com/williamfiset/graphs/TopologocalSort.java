@@ -1,6 +1,9 @@
 package com.williamfiset.graphs;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TopologocalSort {
 	static class Edge {
@@ -57,10 +60,6 @@ public class TopologocalSort {
 			int eachNodeInTopSortOrder = topSort[i];
 			if (graph.get(eachNodeInTopSortOrder) != null) {
 				for (Edge eachAdjEdge : graph.get(eachNodeInTopSortOrder)) {
-					if (dist[eachNodeInTopSortOrder] == null) {
-						int w =3;
-						System.out.println(w);
-					}
 					int newDistance = eachAdjEdge.weight + dist[eachNodeInTopSortOrder];
 					if (dist[eachAdjEdge.to] != null) {
 						dist[eachAdjEdge.to] = Math.min(dist[eachAdjEdge.to], newDistance);
