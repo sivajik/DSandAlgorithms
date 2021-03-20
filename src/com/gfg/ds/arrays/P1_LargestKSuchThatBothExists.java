@@ -11,14 +11,12 @@ public class P1_LargestKSuchThatBothExists {
 
 	static public int bothK(int[] arr) {
 		Arrays.sort(arr);
-		int left = 0;
-		int rite = arr.length - 1;
+		int left = 0, rite = arr.length - 1;
 
 		while (left < rite) {
 			if (arr[left] == -1 * arr[rite]) {
 				return Math.abs(arr[left]);
 			} else if (arr[left] < arr[rite]) {
-				// -3 5
 				rite--;
 			} else {
 				left++;
