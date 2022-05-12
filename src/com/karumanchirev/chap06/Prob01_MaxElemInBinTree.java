@@ -1,5 +1,9 @@
 package com.karumanchirev.chap06;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Prob01_MaxElemInBinTree {
 
 	public static void main(String[] args) {
@@ -24,7 +28,9 @@ public class Prob01_MaxElemInBinTree {
 		n3.right = n7;
 
 		int max = n1.maxElement(n1);
+		int maxi = n1.maxElementIterative(n1);
 		System.out.println(max);
+		System.out.println(maxi);
 	}
 
 	static class BinaryTreeNode {
@@ -42,6 +48,33 @@ public class Prob01_MaxElemInBinTree {
 				return Math.max(root.value, Math.max(lMax, rMax));
 			}
 			return -1;
+		}
+
+		public int maxElementIterative(BinaryTreeNode root) {
+			java.util.Queue<BinaryTreeNode> q = new LinkedList<>();
+			q.add(root);
+			int max = Integer.MIN_VALUE;
+
+			while (!q.isEmpty()) {
+				BinaryTreeNode tmp = q.poll();
+				if (tmp != null) {
+					if (tmp.value > max) {
+						max = tmp.value;
+					}
+
+					if (tmp.left != null) {
+						q.add(tmp.left);
+					}
+					if (tmp.right != null) {
+						q.add(tmp.right);
+					}
+				} else {
+					if (!q.isEmpty()) {
+						q.add(null);
+					}
+				}
+			}
+			return max;
 		}
 
 		BinaryTreeNode(int x) {
