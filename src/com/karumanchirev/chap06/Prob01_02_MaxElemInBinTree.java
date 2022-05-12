@@ -1,10 +1,8 @@
 package com.karumanchirev.chap06;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
-public class Prob01_MaxElemInBinTree {
+public class Prob01_02_MaxElemInBinTree {
 
 	public static void main(String[] args) {
 
