@@ -8,7 +8,7 @@ public class Prob10_HeightOfBinTree {
 	public static void main(String[] args) {
 
 		BinaryTreeNode n1 = null;
-		for (int i = 1; i <= 15; i++) {
+		for (int i = 1; i <= 25; i++) {
 			n1 = insert(n1, i);
 
 		}
