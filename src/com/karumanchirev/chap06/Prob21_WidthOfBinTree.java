@@ -30,6 +30,7 @@ public class Prob21_WidthOfBinTree {
 
 			q.add(root);
 			q.add(null);
+			
 			List<BinaryTreeNode> l = new ArrayList<>();
 			int max = Integer.MIN_VALUE;
 
